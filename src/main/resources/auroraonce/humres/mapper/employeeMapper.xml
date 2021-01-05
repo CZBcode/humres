@@ -17,4 +17,8 @@
         delete from employeeinfo WHERE eno = #{eno};
 
     </delete>
+
+    <insert id="addEmpById"  parameterType="employee">
+        insert into employeeinfo(eno,name) values(#{eno},#{name});
+    </insert>
 </mapper>

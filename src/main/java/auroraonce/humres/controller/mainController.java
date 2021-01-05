@@ -1,5 +1,6 @@
 package auroraonce.humres.controller;
 
+import auroraonce.humres.entity.employee;
 import auroraonce.humres.service.loginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,5 +32,10 @@ public class mainController {
         return loginservice.delEmployeeById(id);
     }
 
+    @RequestMapping(value = "/emp/add",method = RequestMethod.POST)
+    public int addEmpById(@PathVariable employee emp)
+    {
+        return loginservice.addEmployeeById(emp);
+    }
 
 }

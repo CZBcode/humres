@@ -25,6 +25,11 @@ public class loginServiceImpl implements loginService {
     }
 
     @Override
+    public int addEmployeeById(employee newEmp) {
+        return employeemapper.addEmpById(newEmp);
+    }
+
+    @Override
     public int delEmployeeById(Integer eno) {
         int state=200;
         if(employeemapper.delEmpById(eno)==0)

@@ -12,4 +12,5 @@ public interface employeeMapper {
     employee findEmpById(int eno);
     int delEmpById(int eno);
 
+    int addEmpById(employee newEmp);
 }

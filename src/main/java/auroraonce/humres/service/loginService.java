@@ -10,4 +10,6 @@ public interface loginService {
     employee findEmployeeById(int eno);
 
     int delEmployeeById(Integer id);
+
+    int addEmployeeById(employee newEmp);
 }
