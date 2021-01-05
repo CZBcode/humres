@@ -9,4 +9,7 @@ import java.util.List;
 public interface employeeMapper {
 
     List<employee> findAllEmp();
+    employee findEmpById(int eno);
+    int delEmpById(int eno);
+
 }

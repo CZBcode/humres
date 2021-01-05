@@ -18,4 +18,20 @@ public class loginServiceImpl implements loginService {
     public List<employee> findAllEmployee() {
         return employeemapper.findAllEmp();
     }
+
+    @Override
+    public employee findEmployeeById(int eno) {
+        return employeemapper.findEmpById(eno);
+    }
+
+    @Override
+    public int delEmployeeById(Integer eno) {
+        int state=200;
+        if(employeemapper.delEmpById(eno)==0)
+        {
+            state=401;
+        }
+
+        return state;
+    }
 }

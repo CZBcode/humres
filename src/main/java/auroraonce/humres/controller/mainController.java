@@ -3,9 +3,9 @@ package auroraonce.humres.controller;
 import auroraonce.humres.service.loginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.lang.reflect.Method;
 
 @RestController
 public class mainController {
@@ -13,10 +13,23 @@ public class mainController {
     @Autowired
     loginService loginservice;
 
-    @RequestMapping("/")
-    public String test()
+    @RequestMapping(value = "/emp/all",method = RequestMethod.GET)
+    public String showAllEmp()
     {
         return loginservice.findAllEmployee().toString();
     }
+
+    @RequestMapping(value = "/emp/{id}",method = RequestMethod.GET)
+    public String showEmpById(@PathVariable Integer id)
+    {
+        return loginservice.findEmployeeById(id).getName();
+    }
+
+    @RequestMapping(value = "/emp/{id}",method = RequestMethod.DELETE)
+    public int delEmpById(@PathVariable Integer id)
+    {
+        return loginservice.delEmployeeById(id);
+    }
+
 
 }

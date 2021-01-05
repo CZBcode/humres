@@ -7,4 +7,14 @@
         select * from employeeinfo;
 
     </select>
+
+    <select id="findEmpById" resultType="employee" parameterType="Integer">
+        select * from employeeinfo WHERE eno = #{eno};
+
+    </select>
+
+    <delete id="delEmpById"  parameterType="Integer">
+        delete from employeeinfo WHERE eno = #{eno};
+
+    </delete>
 </mapper>
