@@ -3,10 +3,10 @@ package auroraonce.humres.controller;
 import auroraonce.humres.entity.employee;
 import auroraonce.humres.service.loginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Method;
+import java.util.List;
+
 
 @RestController
 public class mainController {
@@ -15,15 +15,15 @@ public class mainController {
     loginService loginservice;
 
     @RequestMapping(value = "/emp/all",method = RequestMethod.GET)
-    public String showAllEmp()
+    public List<employee> showAllEmp()
     {
-        return loginservice.findAllEmployee().toString();
+        return loginservice.findAllEmployee();
     }
 
     @RequestMapping(value = "/emp/{id}",method = RequestMethod.GET)
-    public String showEmpById(@PathVariable Integer id)
+    public employee  showEmpById(@PathVariable Integer id)
     {
-        return loginservice.findEmployeeById(id).getName();
+        return loginservice.findEmployeeById(id);
     }
 
     @RequestMapping(value = "/emp/{id}",method = RequestMethod.DELETE)
